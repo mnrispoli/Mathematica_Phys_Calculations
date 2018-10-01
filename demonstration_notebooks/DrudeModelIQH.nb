@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9101,        244]
-NotebookOptionsPosition[      8638,        222]
-NotebookOutlinePosition[      8981,        237]
-CellTagsIndexPosition[      8938,        234]
+NotebookDataLength[      9122,        244]
+NotebookOptionsPosition[      8660,        222]
+NotebookOutlinePosition[      9003,        237]
+CellTagsIndexPosition[      8960,        234]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -163,8 +163,8 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`bb$$ = 0.726, $CellContext`gg$$ = 
-    0.1, $CellContext`v$$ = 0., Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`bb$$ = 0.63, $CellContext`gg$$ = 
+    0.016800000000000002`, $CellContext`v$$ = 0.105, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
@@ -193,7 +193,7 @@ $CellContext`gg$$}],
          ReplaceAll[
           $CellContext`g[$CellContext`t], {$CellContext`B -> \
 $CellContext`bb$$, $CellContext`V -> $CellContext`v$$, $CellContext`G -> \
-$CellContext`gg$$}]}, {$CellContext`t, 0, 4 2 Pi}, 
+$CellContext`gg$$}]}, {$CellContext`t, 0, (4 2) Pi}, 
         PlotRange -> {{-5, 5}, {-10, 2}}, Frame -> True, 
         FrameLabel -> {
          "X-Direction", "Y-Direction", "Electrons in B-Field + E-Field"}], 
@@ -220,8 +220,8 @@ $CellContext`gg$$}]}, {$CellContext`t, 0, 4 2 Pi},
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{759, 835},
-WindowMargins->{{350, Automatic}, {48, Automatic}},
+WindowSize->{1920, 998},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -239,10 +239,10 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 121, 1, 101, "Title"],
 Cell[CellGroupData[{
-Cell[726, 27, 347, 6, 139, "Subsection"],
+Cell[726, 27, 347, 6, 79, "Subsection"],
 Cell[CellGroupData[{
-Cell[1098, 37, 4552, 123, 278, "Input"],
-Cell[5653, 162, 2945, 55, 596, "Output"]
+Cell[1098, 37, 4552, 123, 259, "Input"],
+Cell[5653, 162, 2967, 55, 596, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
