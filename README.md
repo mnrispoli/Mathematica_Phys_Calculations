@@ -29,3 +29,8 @@ Description of scaling laws for particle number fluctuations and particle number
 ### DrudeModelIQH.nb
 This provides the classical intuition for the classical hall effect that can be transferred to integer quantum hall effect.
 ![Drude Model Output](https://github.com/mnrispoli/Mathematica_Phys_Calculations/blob/master/imgs_for_readme/drude_model.PNG)
+
+### SpontaneousEmission.nb
+This notebook draws a comparison between the density matrix approach and projective measurements of an atom from spontaneous emission of a photon. This monte-carlo approach and density matrix approach should overlap in the limit of many averages of the random sampling of the atom.
+
+![Spontaneous Emission Monte Carlo Compare](https://github.com/mnrispoli/Mathematica_Phys_Calculations/blob/master/imgs_for_readme/SE_MC.PNG)
