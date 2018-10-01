@@ -1,0 +1,252 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9101,        244]
+NotebookOptionsPosition[      8638,        222]
+NotebookOutlinePosition[      8981,        237]
+CellTagsIndexPosition[      8938,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Drude Formula solving and plotting", "Title",
+ CellChangeTimes->{{3.7473928351559525`*^9, 3.7473928413403063`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+This just plots the path of an electron in an E and B field given some \
+initial momentum and initial position zero. Importantly, it also includes \
+scattering off of impurities or disorder that can straighten change the \
+typical cyclotron behavior.\
+\>", "Subsection",
+ CellChangeTimes->{{3.74739284664361*^9, 3.7473929063080225`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solnTau", "=", 
+   RowBox[{"DSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "''"}], "[", "t", "]"}], "\[Equal]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", " ", "B"}], "  ", 
+          RowBox[{
+           RowBox[{"y", "'"}], "[", "t", "]"}]}], " ", "-", " ", "V", "-", 
+         " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "'"}], "[", "t", "]"}], " ", "G"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "''"}], "[", "t", "]"}], "\[Equal]", " ", 
+        RowBox[{
+         RowBox[{"B", " ", 
+          RowBox[{
+           RowBox[{"x", "'"}], "[", "t", "]"}]}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"y", "'"}], "[", "t", "]"}], " ", "G"}]}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+       RowBox[{
+        RowBox[{"y", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "0", "]"}], "\[Equal]", 
+        RowBox[{"-", "1"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "[", "t", "]"}], ",", 
+       RowBox[{"y", "[", "t", "]"}]}], "}"}], ",", "t"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"y", "[", "t", "]"}], "/.", 
+   RowBox[{"solnTau", "\[LeftDoubleBracket]", 
+    RowBox[{"1", ",", "2"}], 
+    "\[RightDoubleBracket]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"h", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], "/.", 
+   RowBox[{"solnTau", "\[LeftDoubleBracket]", 
+    RowBox[{"1", ",", "1"}], 
+    "\[RightDoubleBracket]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"h", "[", "t", "]"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"B", "\[Rule]", " ", "bb"}], ",", 
+          RowBox[{"V", "\[Rule]", " ", "v"}], ",", 
+          RowBox[{"G", "\[Rule]", " ", "gg"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"g", "[", "t", "]"}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"B", "\[Rule]", " ", "bb"}], ",", 
+          RowBox[{"V", "\[Rule]", " ", "v"}], ",", 
+          RowBox[{"G", "\[Rule]", " ", "gg"}]}], "}"}]}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"4", " ", "2", " ", "\[Pi]"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Frame", "\[Rule]", " ", "True"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<X-Direction\>\"", ",", "\"\<Y-Direction\>\"", ",", 
+        "\"\<Electrons in B-Field + E-Field\>\""}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v", ",", "0.15", " ", ",", "\"\<Electric Field (E)\>\""}], 
+      "}"}], ",", "0", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"gg", ",", "0", ",", "\"\<Scattering Rate (1/\[Tau])\>\""}], 
+      "}"}], ",", "0", ",", "0.1"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bb", ",", "1", ",", "\"\<Magnetic Field (B)\>\""}], "}"}], ",",
+      "0.01", ",", "2"}], "}"}]}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.7168177362961783`*^9, 3.716817769913101*^9}, {
+  3.7168178384020185`*^9, 3.7168179279411397`*^9}, {3.716817995217988*^9, 
+  3.7168180022043877`*^9}, {3.7168180363733416`*^9, 3.7168180414676332`*^9}, {
+  3.716818071745365*^9, 3.7168180965847855`*^9}, {3.716818140004269*^9, 
+  3.716818140209281*^9}, {3.71682286441649*^9, 3.716822869412776*^9}, {
+  3.7168229215267563`*^9, 3.716822962723113*^9}, {3.716822993308862*^9, 
+  3.7168230971378007`*^9}, {3.7168234306088743`*^9, 3.716823595293294*^9}, {
+  3.716823654304669*^9, 3.716823707349703*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bb$$ = 0.726, $CellContext`gg$$ = 
+    0.1, $CellContext`v$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v$$], 0.15, "Electric Field (E)"}, 0, 2}, {{
+       Hold[$CellContext`gg$$], 0, "Scattering Rate (1/\[Tau])"}, 0, 0.1}, {{
+       Hold[$CellContext`bb$$], 1, "Magnetic Field (B)"}, 0.01, 2}}, 
+    Typeset`size$$ = {356., {213., 219.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`v$1625$$ =
+     0, $CellContext`gg$1626$$ = 0, $CellContext`bb$1627$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bb$$ = 1, $CellContext`gg$$ = 
+        0, $CellContext`v$$ = 0.15}, "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$1625$$, 0], 
+        Hold[$CellContext`gg$$, $CellContext`gg$1626$$, 0], 
+        Hold[$CellContext`bb$$, $CellContext`bb$1627$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ParametricPlot[{
+         ReplaceAll[
+          $CellContext`h[$CellContext`t], {$CellContext`B -> \
+$CellContext`bb$$, $CellContext`V -> $CellContext`v$$, $CellContext`G -> \
+$CellContext`gg$$}], 
+         ReplaceAll[
+          $CellContext`g[$CellContext`t], {$CellContext`B -> \
+$CellContext`bb$$, $CellContext`V -> $CellContext`v$$, $CellContext`G -> \
+$CellContext`gg$$}]}, {$CellContext`t, 0, 4 2 Pi}, 
+        PlotRange -> {{-5, 5}, {-10, 2}}, Frame -> True, 
+        FrameLabel -> {
+         "X-Direction", "Y-Direction", "Electrons in B-Field + E-Field"}], 
+      "Specifications" :> {{{$CellContext`v$$, 0.15, "Electric Field (E)"}, 0,
+          2}, {{$CellContext`gg$$, 0, "Scattering Rate (1/\[Tau])"}, 0, 
+         0.1}, {{$CellContext`bb$$, 1, "Magnetic Field (B)"}, 0.01, 2}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {286., 293.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.716823080351841*^9, 3.7168230975478244`*^9}, {
+   3.716823431668935*^9, 3.716823541993245*^9}, {3.7168235851667147`*^9, 
+   3.716823595820324*^9}, {3.7168236699415636`*^9, 3.7168237079827394`*^9}, 
+   3.7473899695344143`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 835},
+WindowMargins->{{350, Automatic}, {48, Automatic}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 121, 1, 101, "Title"],
+Cell[CellGroupData[{
+Cell[726, 27, 347, 6, 139, "Subsection"],
+Cell[CellGroupData[{
+Cell[1098, 37, 4552, 123, 278, "Input"],
+Cell[5653, 162, 2945, 55, 596, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
